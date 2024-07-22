@@ -7,10 +7,11 @@ import {
 import { Transition, Menu } from "@headlessui/react";
 import { Fragment } from "react/jsx-runtime";
 import { FaStore } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <div className="flex w-full fixed h-20 bg-woodsmoke-800 justify-between items-center p-4 border-b border-woodsmoke-500">
+    <div className="flex w-full sticky h-20 bg-woodsmoke-800 justify-between items-center p-4 border-b border-woodsmoke-500">
       <div className="flex flex-row items-center">
         <FaStore fontSize={32} className="text-woodsmoke-50 mr-2" />
         <div className="hidden sm:flex text-xl text-woodsmoke-50">
@@ -56,28 +57,43 @@ export function Header() {
             <Menu.Items className="absolute right-0 w-40 mt-2 origin-top-right bg-[rgba(_30,_31,_36,_0.90_)] backdrop-filter backdrop-blur-[6px] rounded-md shadow-lg">
               <div className="py-1">
                 <Menu.Item>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Minha Conta
-                  </a>
+                  {({ active }) => (
+                    <Link
+                      to="/account"
+                      className={`block px-4 py-2 text-sm ${
+                        active &&
+                        "block px-4 py-2 text-sm bg-woodsmoke-600 text-white"
+                      }`}
+                    >
+                      Minha Conta
+                    </Link>
+                  )}
                 </Menu.Item>
                 <Menu.Item>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Meus Pedidos
-                  </a>
+                  {({ active }) => (
+                    <Link
+                      to="/account/orders"
+                      className={`block px-4 py-2 text-sm ${
+                        active &&
+                        "block px-4 py-2 text-sm bg-woodsmoke-600 text-white"
+                      }`}
+                    >
+                      Meus Pedidos
+                    </Link>
+                  )}
                 </Menu.Item>
                 <Menu.Item>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Sair
-                  </a>
+                  {({ active }) => (
+                    <Link
+                      to="/"
+                      className={`block px-4 py-2 text-sm ${
+                        active &&
+                        "block px-4 py-2 text-sm bg-woodsmoke-600 text-white"
+                      }`}
+                    >
+                      Sair
+                    </Link>
+                  )}
                 </Menu.Item>
               </div>
             </Menu.Items>

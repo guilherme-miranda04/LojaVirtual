@@ -1,12 +1,10 @@
 import { PiSealWarningFill } from "react-icons/pi";
 import { CardItem } from "../../components/Cards/CardItem";
-import { Header } from "./Header";
 
 export function HomePage() {
   return (
     <div className="flex flex-col w-full h-full">
-      <Header />
-      <div className="flex mt-12 w-full h-full bg-woodsmoke-950 flex-col p-8">
+      <div className="flex mt-12 w-full h-full flex-col p-8">
         <div className="flex flex-row item-center text-2xl uppercase py-4">
           <PiSealWarningFill
             fontSize={32}
