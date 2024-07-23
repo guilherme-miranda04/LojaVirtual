@@ -7,6 +7,7 @@ interface InputProps {
   type: string;
   placeholder?: string;
   required?: boolean;
+  value?: string;
 }
 
 const ValidationError = ({ message }: { message: string }) => (
@@ -15,17 +16,23 @@ const ValidationError = ({ message }: { message: string }) => (
   </p>
 );
 
-export function Input({ label, type, placeholder, required }: InputProps) {
+export function Input({
+  label,
+  type,
+  placeholder,
+  required,
+  value,
+}: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [touched, setTouched] = useState(false);
-  const [value, setValue] = useState("");
+  const [valueChanged, setValueChanged] = useState("");
 
   const handleBlur = () => {
     setTouched(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setValueChanged(e.target.value);
   };
 
   // Função para alternar a visibilidade da senha
@@ -56,7 +63,7 @@ export function Input({ label, type, placeholder, required }: InputProps) {
               onChange={handleChange}
               value={value}
             />
-            {required && touched && !value && (
+            {required && touched && !valueChanged && (
               <ValidationError
                 message={`Por favor, preencher o seu ${label}`}
               />
@@ -84,7 +91,7 @@ export function Input({ label, type, placeholder, required }: InputProps) {
                 <MdVisibility fontSize={20} className="text-white" />
               )}
             </button>
-            {required && touched && !value && (
+            {required && touched && !valueChanged && (
               <ValidationError
                 message={`Por favor, preencher a sua ${label}`}
               />
@@ -101,10 +108,10 @@ export function Input({ label, type, placeholder, required }: InputProps) {
               onChange={handleChange}
               value={value}
             />
-            {required && touched && !value && (
+            {required && touched && !valueChanged && (
               <ValidationError message={`Por favor, insira um ${label}`} />
             )}
-            {touched && value && !isEmailValid(value) && (
+            {touched && valueChanged && !isEmailValid(valueChanged) && (
               <ValidationError
                 message={`Por favor, insira um ${label} válido`}
               />
@@ -121,7 +128,7 @@ export function Input({ label, type, placeholder, required }: InputProps) {
               onChange={handleChange}
               value={value}
             />
-            {required && touched && !value && (
+            {required && touched && !valueChanged && (
               <ValidationError
                 message={`Por favor, preencher o seu ${label}`}
               />

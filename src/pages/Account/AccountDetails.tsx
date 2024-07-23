@@ -3,6 +3,10 @@ import { BreadCrumb } from "../../components/BreadCrumb/BreadCrumb";
 import { RiFolderUserFill } from "react-icons/ri";
 import { Input } from "../../components/Input/Input";
 import { CheckBox } from "../../components/Checkbox/CheckBox";
+import { Button } from "../../components/Button/Button";
+import { CardConnector } from "../../components/Cards/CardConnector";
+import { BiSolidBarChartSquare } from "react-icons/bi";
+import { FaLocationDot, FaTruckRampBox } from "react-icons/fa6";
 
 export function AccountDetails({ firstName }) {
   return (
@@ -52,20 +56,32 @@ export function AccountDetails({ firstName }) {
                 />
                 <Input label="Senha" type="password" placeholder="Senha" />
               </div>
-              <div className="flex p-2 justify-between items-center mt-4">
+              <div className="flex w-full p-2 justify-between items-center mt-4">
                 <CheckBox />
-                <button className="w-36 h-12 bg-royal-blue-900 text-white font-bold text-center rounded-md hover:bg-royal-blue-800 active:scale-95 transition-transform transform">
-                  Atualizar Dados
-                </button>
+                <div className="">
+                  <Button label="Atualizar Dados" />
+                </div>
               </div>
             </form>
           </div>
         </div>
-        <div className="flex flex-col rounded-2xl w-96 bg-woodsmoke-800 shadow-xl mt-8">
-          <div className="flex flex-col text-center items-center justify-center p-8">
-            <div className="text-2xl font-bold text-center text-[#374151]">
-              Generator
-            </div>
+        <div className="flex flex-row w-3/4 justify-between">
+          <div className="w-full grid grid-cols-3 gap-8 mt-8">
+            <CardConnector
+              label="Gráficos"
+              icon={<BiSolidBarChartSquare fontSize={32} />}
+              routes="/account/dashboard"
+            />
+            <CardConnector
+              label="Meus Endereços"
+              icon={<FaLocationDot fontSize={32} className="p-1" />}
+              routes="/account/address"
+            />
+            <CardConnector
+              label="Meus Pedidos"
+              icon={<FaTruckRampBox fontSize={32} />}
+              routes="/account/orders"
+            />
           </div>
         </div>
       </div>

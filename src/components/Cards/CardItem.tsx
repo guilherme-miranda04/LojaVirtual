@@ -1,4 +1,5 @@
 import { FaCartPlus } from "react-icons/fa";
+import { Button } from "../Button/Button";
 
 interface CardItemProps {
   imageUrl: string;
@@ -56,10 +57,7 @@ export function CardItem({
           </div>
         </div>
         <div className="flex justify-end pt-6">
-          <button className="flex bg-royal-blue-900 justify-center items-center text-japanese-maple-50 w-full font-bold text-xl p-3 rounded-lg hover:bg-royal-blue-800 active:scale-95 transition-transform transform">
-            <FaCartPlus fontSize={24} />
-            <p className="pl-4">Adicionar ao Carrinho</p>
-          </button>
+          <Button label="Adicionar ao Carrinho" icon={<FaCartPlus />} hasIcon />
         </div>
       </div>
     </div>
