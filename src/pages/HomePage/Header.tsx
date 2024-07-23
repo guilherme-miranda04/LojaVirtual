@@ -24,13 +24,13 @@ export function Header() {
           className="absolute translate-y-1/2 left-2 "
         />
         <input
-          type="text"
+          type="search"
           placeholder="Pesquise seu produto..."
           className="h-10 w-full bg-woodsmoke-700 p-4 pl-8 rounded-md text-sm focus:outline-none active:outline-none"
         />
       </div>
       <div className="flex items-center gap-2 mr-2 text-woodsmoke-50">
-        <Menu as="div" className="relative hover:bg-sea-green-950-">
+        <Menu as="div" className="relative">
           <div>
             <Menu.Button className="inline-flex items-center hover:bg-woodsmoke-700 p-2 rounded-md">
               <span className="sr-only">Open user menu</span>
@@ -79,6 +79,19 @@ export function Header() {
                       }`}
                     >
                       Meus Pedidos
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/account/address"
+                      className={`block px-4 py-2 text-sm ${
+                        active &&
+                        "block px-4 py-2 text-sm bg-woodsmoke-600 text-white"
+                      }`}
+                    >
+                      Meus Endereços
                     </Link>
                   )}
                 </Menu.Item>
