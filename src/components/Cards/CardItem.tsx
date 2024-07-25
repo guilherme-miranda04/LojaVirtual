@@ -57,7 +57,12 @@ export function CardItem({
           </div>
         </div>
         <div className="flex justify-end pt-6">
-          <Button label="Adicionar ao Carrinho" icon={<FaCartPlus />} hasIcon />
+          <Button
+            label="Adicionar ao Carrinho"
+            width="full"
+            icon={<FaCartPlus />}
+            hasIcon
+          />
         </div>
       </div>
     </div>

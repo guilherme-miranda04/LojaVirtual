@@ -1,8 +1,12 @@
 import { IoIosArrowForward } from "react-icons/io";
 import { IoHome } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { getRoutesLink } from "../../assets/routes/RoutesLink";
 
 export function BreadCrumb() {
+  const location = useLocation();
+  const routes = getRoutesLink(location.pathname);
+
   return (
     <div className="">
       <nav className="flex" aria-label="Breadcrumb">
@@ -15,17 +19,17 @@ export function BreadCrumb() {
               <IoHome className="text-white hover:text-royal-blue-600" />
             </Link>
           </li>
-          <li>
-            <div className="flex items-center">
+          {routes.map((route, index) => (
+            <li key={index} className="flex items-center">
               <IoIosArrowForward className="text-white" />
               <Link
-                to="/account"
+                to={route.path}
                 className="ms-1 text-sm font-medium text-white hover:text-royal-blue-600 md:ms-2"
               >
-                Minha Conta
+                {route.name}
               </Link>
-            </div>
-          </li>
+            </li>
+          ))}
         </ol>
       </nav>
     </div>

@@ -9,10 +9,11 @@ import { BiSolidBarChartSquare } from "react-icons/bi";
 import { FaLocationDot, FaTruckRampBox } from "react-icons/fa6";
 
 export function AccountDetails({ firstName }) {
+  firstName = "Guilherme";
   return (
     <div className="flex-1">
       <div className="flex flex-col w-full justify-center items-center">
-        <div className="left-auto right-auto w-3/4 bg-woodsmoke-800 mt-4 p-4">
+        <div className="left-auto right-auto w-3/4 bg-woodsmoke-800 my-8 p-4">
           <BreadCrumb />
           <div className="flex py-2 px-2 mt-4 border-b-4 border-royal-blue-700 items-center">
             <MdAccountCircle fontSize={56} className="fill-royal-blue-700" />
@@ -47,7 +48,7 @@ export function AccountDetails({ firstName }) {
                   required
                 />
                 <Input label="CPF" type="cpf" placeholder="CPF *" required />
-                <Input label="RG" type="text" placeholder="RG" />
+                <Input label="RG" type="text" placeholder="RG" disabled />
                 <Input
                   label="Email"
                   type="email"
@@ -65,8 +66,8 @@ export function AccountDetails({ firstName }) {
             </form>
           </div>
         </div>
-        <div className="flex flex-row w-3/4 justify-between">
-          <div className="w-full grid grid-cols-3 gap-8 mt-8">
+        <div className="flex flex-row w-3/4 justify-between mb-8">
+          <div className="w-full grid grid-cols-3 gap-8 ">
             <CardConnector
               label="Gráficos"
               icon={<BiSolidBarChartSquare fontSize={32} />}

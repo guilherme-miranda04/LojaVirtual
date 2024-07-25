@@ -7,6 +7,7 @@ interface InputProps {
   type: string;
   placeholder?: string;
   required?: boolean;
+  disabled?: boolean;
   value?: string;
 }
 
@@ -21,6 +22,7 @@ export function Input({
   type,
   placeholder,
   required,
+  disabled,
   value,
 }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
@@ -59,6 +61,7 @@ export function Input({
               placeholder={placeholder}
               mask="999.999.999-99"
               required={required}
+              disabled={disabled}
               onBlur={handleBlur}
               onChange={handleChange}
               value={value}
@@ -76,6 +79,7 @@ export function Input({
               type={showPassword ? "text" : "password"}
               placeholder={placeholder}
               required={required}
+              disabled={disabled}
               onBlur={handleBlur}
               onChange={handleChange}
               value={value}
@@ -104,6 +108,7 @@ export function Input({
               type={type}
               placeholder={placeholder}
               required={required}
+              disabled={disabled}
               onBlur={handleBlur}
               onChange={handleChange}
               value={value}
@@ -120,10 +125,15 @@ export function Input({
         ) : (
           <div className="relative">
             <input
-              className="w-full bg-woodsmoke-800 px-3 py-2.5 text-sm rounded-lg border border-woodsmoke-400 text-white focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-royal-blue-700 peer"
+              className={`w-full bg-woodsmoke-800 px-3 py-2.5 text-sm rounded-lg border border-woodsmoke-400 text-white focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-royal-blue-700 peer ${
+                disabled
+                  ? "cursor-not-allowed bg-woodsmoke-400 bg-opacity-15"
+                  : "bg-woodsmoke-800"
+              }`}
               type={type}
-              placeholder={placeholder}
+              placeholder={disabled ? "Campo desativado!" : placeholder}
               required={required}
+              disabled={disabled}
               onBlur={handleBlur}
               onChange={handleChange}
               value={value}

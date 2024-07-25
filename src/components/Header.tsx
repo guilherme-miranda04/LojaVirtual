@@ -8,8 +8,12 @@ import { Transition, Menu } from "@headlessui/react";
 import { Fragment } from "react/jsx-runtime";
 import { FaStore } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { getRoutesMenu } from "../assets/routes/RoutesLink";
 
 export function Header() {
+  const accountType = "admin";
+
+  const routes = getRoutesMenu(accountType);
   return (
     <div className="flex w-full sticky h-20 bg-woodsmoke-800 justify-between items-center p-4 border-b border-woodsmoke-500">
       <div className="flex flex-row items-center">
@@ -56,58 +60,20 @@ export function Header() {
           >
             <Menu.Items className="absolute right-0 w-40 mt-2 origin-top-right bg-[rgba(_30,_31,_36,_0.90_)] backdrop-filter backdrop-blur-[6px] rounded-md shadow-lg">
               <div className="py-1">
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      to="/account"
-                      className={`block px-4 py-2 text-sm ${
-                        active &&
-                        "block px-4 py-2 text-sm bg-woodsmoke-600 text-white"
-                      }`}
-                    >
-                      Minha Conta
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      to="/account/orders"
-                      className={`block px-4 py-2 text-sm ${
-                        active &&
-                        "block px-4 py-2 text-sm bg-woodsmoke-600 text-white"
-                      }`}
-                    >
-                      Meus Pedidos
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      to="/account/address"
-                      className={`block px-4 py-2 text-sm ${
-                        active &&
-                        "block px-4 py-2 text-sm bg-woodsmoke-600 text-white"
-                      }`}
-                    >
-                      Meus Endereços
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      to="/"
-                      className={`block px-4 py-2 text-sm ${
-                        active &&
-                        "block px-4 py-2 text-sm bg-woodsmoke-600 text-white"
-                      }`}
-                    >
-                      Sair
-                    </Link>
-                  )}
-                </Menu.Item>
+                {routes.map((route, index) => (
+                  <Menu.Item key={index}>
+                    {({ active }) => (
+                      <Link
+                        to={route.path}
+                        className={`block px-4 py-2 text-sm ${
+                          active && "bg-woodsmoke-600 text-white"
+                        }`}
+                      >
+                        {route.name}
+                      </Link>
+                    )}
+                  </Menu.Item>
+                ))}
               </div>
             </Menu.Items>
           </Transition>
