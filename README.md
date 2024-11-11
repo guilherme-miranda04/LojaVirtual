@@ -1,30 +1,64 @@
-# React + TypeScript + Vite
+# LojaVirtual
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um aplicativo de e-commerce voltado para o aprendizado, desenvolvido utilizando React com TypeScript e Vite. O objetivo do aplicativo é proporcionar uma experiência de compras online, enquanto os usuários aprendem a desenvolver e gerenciar um e-commerce utilizando tecnologias modernas.
 
-Currently, two official plugins are available:
+## Roadmap
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Melhorar o suporte de navegadores
 
-## Expanding the ESLint configuration
+- Adicionar mais integrações
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Pré-requisitos
 
-- Configure the top-level `parserOptions` property like this:
+- Node.js (v)
+- React (v)
+- Eclipse
+- JDK 17
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Tecnologias Usadas
+
+Foram utilizadas as seguintes tecnologias:
+
+- React: Biblioteca JavaScript para construir interfaces de usuário.
+- Vite: Ferramenta de build extremamente rápida e leve para projetos React.
+- React Router DOM: Biblioteca para gerenciar rotas no React.
+- React Input Mask: Biblioteca para criar máscaras de entrada nos campos de formulários.
+- TailwindCSS: Framework de CSS para criar layouts responsivos.
+- Chart.js: Biblioteca para criar gráficos e visualizações de dados.
+
+## Instalação
+
+A instalação é fácil! Favor seguir as etapas a seguir:
+
+1. Instale my-project com npm
+
+```bash
+  git clone https://github.com/guilherme-miranda04/LojaVirtual.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navegue até o diretório do projeto:
+
+```bash
+  cd LojaVirtual
+```
+
+3. Instale as dependências:
+
+```console
+  npm run start
+```
+
+4. Inicie o servidor de desenvolvimento:
+
+```console
+  npm run dev
+```
+
+## Licença
+
+Este projeto está licenciado sob a Licença [MIT](https://github.com/guilherme-miranda04/LojaVirtual/blob/main/LICENSE).
+Veja o arquivo `LICENSE` para mais detalhes.
+
+## Autor
+
+- [@guilherme-miranda04](https://www.github.com/guilherme-miranda04)
